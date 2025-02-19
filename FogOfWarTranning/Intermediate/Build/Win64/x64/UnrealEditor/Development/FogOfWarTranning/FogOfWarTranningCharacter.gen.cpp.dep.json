@@ -1,21 +1,21 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\fogofwartranningcharacter.gen.cpp",
+        "Source": "d:\\github\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\fogofwartranningcharacter.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\x64\\fogofwartranningeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "PCH": "d:\\github\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\x64\\fogofwartranningeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
         "Includes": [
-            "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\fogofwartranning\\definitions.fogofwartranning.h",
-            "d:\\c unreal engine\\fogofwartranning\\source\\fogofwartranning\\fogofwartranningcharacter.h",
-            "d:\\c unreal engine\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
-            "d:\\c unreal engine\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
-            "d:\\c unreal engine\\ue_5.4\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
-            "d:\\c unreal engine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
-            "d:\\c unreal engine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
-            "d:\\c unreal engine\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
-            "d:\\c unreal engine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
-            "d:\\c unreal engine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
-            "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\fogofwartranningcharacter.generated.h"
+            "d:\\github\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\fogofwartranning\\definitions.fogofwartranning.h",
+            "d:\\github\\fogofwartranning\\fogofwartranning\\source\\fogofwartranning\\fogofwartranningcharacter.h",
+            "d:\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "d:\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "d:\\ue_5.4\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "d:\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "d:\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "d:\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "d:\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "d:\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "d:\\github\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\fogofwartranningcharacter.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

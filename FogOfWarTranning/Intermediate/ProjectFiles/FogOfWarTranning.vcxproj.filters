@@ -11,6 +11,7 @@
     <None Include="..\..\Source\FogOfWarTranningEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -57,6 +58,24 @@
       <Filter>Source\FogOfWarTranning</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\FogOfWarTranning\FogOfWarTranningPlayerController.h">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FogOfWarTranning\Grid.cpp">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FogOfWarTranning\Grid.h">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FogOfWarTranning\GridManager.cpp">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FogOfWarTranning\GridManager.h">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FogOfWarTranning\Wall.cpp">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FogOfWarTranning\Wall.h">
       <Filter>Source\FogOfWarTranning</Filter>
     </ClInclude>
   </ItemGroup>

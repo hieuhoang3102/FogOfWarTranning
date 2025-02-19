@@ -141,14 +141,14 @@ AGridManager::~AGridManager() {}
 // End Class AGridManager
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_Statics
+struct Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_AGridManager, AGridManager::StaticClass, TEXT("AGridManager"), &Z_Registration_Info_UClass_AGridManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridManager), 551747875U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_3556028845(TEXT("/Script/FogOfWarTranning"),
-	Z_CompiledInDeferFile_FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_3556028845(TEXT("/Script/FogOfWarTranning"),
+	Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

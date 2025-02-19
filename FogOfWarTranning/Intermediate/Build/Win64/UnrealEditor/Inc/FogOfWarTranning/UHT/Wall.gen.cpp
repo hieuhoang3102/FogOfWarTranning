@@ -98,14 +98,14 @@ AWall::~AWall() {}
 // End Class AWall
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_FogOfWarTranning_Source_FogOfWarTranning_Wall_h_Statics
+struct Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Wall_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_AWall, AWall::StaticClass, TEXT("AWall"), &Z_Registration_Info_UClass_AWall, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWall), 548775326U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FogOfWarTranning_Source_FogOfWarTranning_Wall_h_1830733760(TEXT("/Script/FogOfWarTranning"),
-	Z_CompiledInDeferFile_FID_FogOfWarTranning_Source_FogOfWarTranning_Wall_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FogOfWarTranning_Source_FogOfWarTranning_Wall_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Wall_h_1830733760(TEXT("/Script/FogOfWarTranning"),
+	Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Wall_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Wall_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

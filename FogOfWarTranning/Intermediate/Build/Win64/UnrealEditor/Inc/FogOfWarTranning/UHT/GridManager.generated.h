@@ -14,11 +14,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define FOGOFWARTRANNING_GridManager_generated_h
 
-#define FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execSpawnGrid);
 
 
-#define FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_INCLASS_NO_PURE_DECLS \
+#define FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAGridManager(); \
 	friend struct Z_Construct_UClass_AGridManager_Statics; \
@@ -27,7 +27,7 @@ public: \
 	DECLARE_SERIALIZER(AGridManager)
 
 
-#define FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_ENHANCED_CONSTRUCTORS \
+#define FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AGridManager(AGridManager&&); \
@@ -39,13 +39,13 @@ public: \
 	NO_API virtual ~AGridManager();
 
 
-#define FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_11_PROLOG
-#define FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_GENERATED_BODY \
+#define FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_11_PROLOG
+#define FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_INCLASS_NO_PURE_DECLS \
-	FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_ENHANCED_CONSTRUCTORS \
+	FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_INCLASS_NO_PURE_DECLS \
+	FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -53,7 +53,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> FOGOFWARTRANNING_API UClass* StaticClass<class AGridManager>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h
+#define CURRENT_FILE_ID FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_GridManager_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

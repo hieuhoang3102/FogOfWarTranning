@@ -53,6 +53,7 @@ void AFogOfWarTranningPlayerController::Tick(float DeltaTime)
 		UpdateFogOfWar();
 	}
 }
+
 void AFogOfWarTranningPlayerController::UpdateFogOfWar()
 {
     UWorld* World = GetWorld();
@@ -121,42 +122,56 @@ void AFogOfWarTranningPlayerController::UpdateFogOfWar()
                     }
                 }
                 // Nếu ô nằm trên tiếp tuyến, vẫn sáng
-                if (FMath::PointDistToLine(CellWorldPosition, Tangent1, PlayerLocation) < CellSize ||
-                    FMath::PointDistToLine(CellWorldPosition, Tangent2, PlayerLocation) < CellSize)
-                {
-                    LocalVisibleCells.Add(CellWorldPosition);
-                }
+                // if (FMath::PointDistToLine(CellWorldPosition, Tangent1, PlayerLocation) < CellSize ||
+                //     FMath::PointDistToLine(CellWorldPosition, Tangent2, PlayerLocation) < CellSize)
+                // {
+                //     LocalVisibleCells.Add(CellWorldPosition);
+                // }
             }
         }
     }
-	
-	for (int x = 0; x < Max; x++)
-	{
-		for (int y = 0; y < Max; y++)
-		{
-			FVector CellWorldPosition(x * CellSize, y * CellSize, 20.0f);
-			float DistanceSquared = FVector::DistSquared(PlayerLocation, CellWorldPosition);
 
-			if (DistanceSquared > MinRadiusSquared)
-			{
-				if (FOW[x][y] == false) // Nếu ô không nằm trong phạm vi tầm nhìn và chưa được tối màu
-				{
-					FOW[x][y] = true; // Ô ngoài phạm vi luôn tối
-					FowData[x * Max + y].Z = true;
-				}
-				continue;
-			}
-			else
-			{
-				bool bObstructed = ObstructedCells.Contains(CellWorldPosition);
-				if (bObstructed != FOW[x][y]) // Chỉ cập nhật nếu có sự thay đổi
-				{
-					FOW[x][y] = bObstructed;
-					FowData[x * Max + y].Z = bObstructed;
-				}
-			}
-		}
-	}
+    // Cập nhật vùng sương mù và chỉ tính toán những ô thay đổi
+	//FowData.Empty(); // Xóa dữ liệu cũ trước khi cập nhật mới
+    for (int x = 0; x < Max; x++)
+    {
+        for (int y = 0; y < Max; y++)
+        {
+            FVector CellWorldPosition(x * CellSize, y * CellSize, 20.0f);
+            float DistanceSquared = FVector::DistSquared(PlayerLocation, CellWorldPosition);
+
+            // Nếu ô ngoài tầm nhìn, bôi đen lại
+            if (DistanceSquared > MinRadiusSquared)
+            {
+                FOW[x][y] = true; // Ô ngoài phạm vi luôn tối
+            	FowData[x * Max + y].Z = true;
+                continue;
+            }
+            else
+            {
+            	bool bObstructed = ObstructedCells.Contains(CellWorldPosition);
+            	FOW[x][y] = bObstructed;
+            	FowData[x * Max + y].Z = bObstructed;
+            }
+            // Kiểm tra ô có bị che khuất không
+            // bool bObstructed = ObstructedCells.Contains(CellWorldPosition);
+            // bool bOnTangent = LocalVisibleCells.Contains(CellWorldPosition);
+
+
+        	
+        	// // Nếu ô bị che khuất (FOW[x][y] == true), thêm vào FowData
+        	// if (FOW[x][y])
+        	// {
+        	// 	FowData.Add(FDataFog{x * CellSize, y * CellSize, true});
+        	// }
+        	// // Nếu ô nằm trong danh sách ô tầm nhìn, thêm vào FowData với trạng thái sáng
+        	// if (LocalVisibleCells.Contains(CellWorldPosition))
+        	// {
+        	// 	FowData.Add(FDataFog{x * CellSize, y * CellSize, false}); // Ô thuộc tầm nhìn
+        	// }
+        	// // FOW[x][y] = bObstructed && !bOnTangent;
+        }
+    }
 }
 
 void AFogOfWarTranningPlayerController::DrawFow()
@@ -234,4 +249,3 @@ void AFogOfWarTranningPlayerController::OnSetDestinationReleased()
 
 	FollowTime = 0.f;
 }
-

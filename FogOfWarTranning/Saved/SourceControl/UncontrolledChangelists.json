@@ -5,6 +5,12 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"D:/GitHub/FogOfWarTranning/FogOfWarTranning/Content/TopDown/Blueprints/BP_TopDownCharacter.uasset",
+				"D:/GitHub/FogOfWarTranning/FogOfWarTranning/Content/TopDown/Blueprints/BPI_FogOfWar.uasset",
+				"D:/GitHub/FogOfWarTranning/FogOfWarTranning/Content/TopDown/Blueprints/BP_FogOfWar.uasset",
+				"D:/GitHub/FogOfWarTranning/FogOfWarTranning/Content/TopDown/Materials/M_FogOfWar.uasset",
+				"D:/GitHub/FogOfWarTranning/FogOfWarTranning/Content/__ExternalActors__/TopDown/Maps/TopDownMap/C/WS/1T8KEFBAJ8P3I5UEOMY50G.uasset",
+				"D:/GitHub/FogOfWarTranning/FogOfWarTranning/Content/__ExternalActors__/TopDown/Maps/TopDownMap/C/JD/5BHFU0IH6WKMJJHSUWD35N.uasset",
 				"D:/C Unreal Engine/FogOfWarTranning/Content/StarterContent/Architecture/Floor_400x400.uasset",
 				"D:/C Unreal Engine/FogOfWarTranning/Content/Blueprint/MyFogOfWarTranningCharacter.uasset",
 				"D:/C Unreal Engine/FogOfWarTranning/Content/Blueprint/BP_Controller.uasset",

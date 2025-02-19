@@ -1,6 +1,6 @@
 /I "."
-/I "D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\UnrealEditor\Inc\FogOfWarTranning\UHT"
-/I "D:\C Unreal Engine\FogOfWarTranning\Source"
+/I "D:\GitHub\FogOfWarTranning\FogOfWarTranning\Intermediate\Build\Win64\UnrealEditor\Inc\FogOfWarTranning\UHT"
+/I "D:\GitHub\FogOfWarTranning\FogOfWarTranning\Source"
 /I "Runtime\Core\Public"
 /I "Runtime\Core\Internal"
 /I "Runtime\TraceLog\Public"
