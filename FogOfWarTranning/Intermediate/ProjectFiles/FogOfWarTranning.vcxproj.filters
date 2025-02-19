@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\FogOfWarTranning.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\FogOfWarTranning.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\FogOfWarTranningEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\FogOfWarTranning">
+      <UniqueIdentifier>{3D4358C6-EDD6-3C6E-895B-3E9E3F9E2283}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\FogOfWarTranning\FogOfWarTranning.Build.cs">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\FogOfWarTranning\FogOfWarTranning.cpp">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FogOfWarTranning\FogOfWarTranning.h">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FogOfWarTranning\FogOfWarTranningCharacter.cpp">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FogOfWarTranning\FogOfWarTranningCharacter.h">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FogOfWarTranning\FogOfWarTranningGameMode.cpp">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FogOfWarTranning\FogOfWarTranningGameMode.h">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FogOfWarTranning\FogOfWarTranningPlayerController.cpp">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FogOfWarTranning\FogOfWarTranningPlayerController.h">
+      <Filter>Source\FogOfWarTranning</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\fogofwartranningplayercontroller.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\x64\\fogofwartranningeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\fogofwartranning\\definitions.fogofwartranning.h",
+            "d:\\c unreal engine\\fogofwartranning\\source\\fogofwartranning\\fogofwartranningplayercontroller.h",
+            "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\fogofwartranningplayercontroller.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

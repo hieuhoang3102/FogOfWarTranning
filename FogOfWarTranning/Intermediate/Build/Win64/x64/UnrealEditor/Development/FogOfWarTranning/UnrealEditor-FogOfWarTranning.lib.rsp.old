@@ -1,0 +1,23 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-FogOfWarTranning.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\FogOfWarTranningEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\FogOfWarTranning.init.gen.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\FogOfWarTranningCharacter.gen.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\FogOfWarTranningGameMode.gen.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\FogOfWarTranningPlayerController.gen.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\Grid.gen.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\GridManager.gen.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\FogOfWarTranning.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\FogOfWarTranningCharacter.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\FogOfWarTranningGameMode.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\FogOfWarTranningPlayerController.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\Grid.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\GridManager.cpp.obj"
+"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\Default.rc2.res"
+/OUT:"D:\C Unreal Engine\FogOfWarTranning\Intermediate\Build\Win64\x64\UnrealEditor\Development\FogOfWarTranning\UnrealEditor-FogOfWarTranning.lib"

@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\C Unreal Engine\\FogOfWarTranning\\Source\\FogOfWarTranning\\FogOfWarTranning.Build.cs",
+		"D:\\C Unreal Engine\\FogOfWarTranning\\Source\\FogOfWarTranning.Target.cs",
+		"D:\\C Unreal Engine\\FogOfWarTranning\\Source\\FogOfWarTranningEditor.Target.cs"
+	],
+	"EngineVersion": "5.4.4"
+}

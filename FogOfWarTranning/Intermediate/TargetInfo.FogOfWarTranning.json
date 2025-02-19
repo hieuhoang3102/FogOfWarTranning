@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "FogOfWarTranning",
+			"Path": "..\\Source\\FogOfWarTranning.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "FogOfWarTranningEditor",
+			"Path": "..\\Source\\FogOfWarTranningEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

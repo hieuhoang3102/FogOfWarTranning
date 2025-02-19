@@ -1,0 +1,21 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\gridmanager.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\x64\\fogofwartranningeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\fogofwartranning\\definitions.fogofwartranning.h",
+            "d:\\c unreal engine\\fogofwartranning\\source\\fogofwartranning\\gridmanager.h",
+            "d:\\c unreal engine\\fogofwartranning\\source\\fogofwartranning\\grid.h",
+            "d:\\c unreal engine\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\boxcomponent.h",
+            "d:\\c unreal engine\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
+            "d:\\c unreal engine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\shapecomponent.generated.h",
+            "d:\\c unreal engine\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\boxcomponent.generated.h",
+            "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\grid.generated.h",
+            "d:\\c unreal engine\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\gridmanager.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
