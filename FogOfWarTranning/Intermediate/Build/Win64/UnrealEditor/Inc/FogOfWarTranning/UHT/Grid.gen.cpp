@@ -98,14 +98,14 @@ AGrid::~AGrid() {}
 // End Class AGrid
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Grid_h_Statics
+struct Z_CompiledInDeferFile_FID_GitHub_UnrealEngine_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Grid_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_AGrid, AGrid::StaticClass, TEXT("AGrid"), &Z_Registration_Info_UClass_AGrid, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGrid), 357417052U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Grid_h_803040493(TEXT("/Script/FogOfWarTranning"),
-	Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Grid_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Grid_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_UnrealEngine_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Grid_h_803040493(TEXT("/Script/FogOfWarTranning"),
+	Z_CompiledInDeferFile_FID_GitHub_UnrealEngine_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Grid_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_UnrealEngine_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_Grid_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

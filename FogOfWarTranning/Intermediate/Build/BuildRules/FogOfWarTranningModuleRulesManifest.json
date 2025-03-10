@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"D:\\GitHub\\FogOfWarTranning\\FogOfWarTranning\\Source\\FogOfWarTranning\\FogOfWarTranning.Build.cs",
-		"D:\\GitHub\\FogOfWarTranning\\FogOfWarTranning\\Source\\FogOfWarTranning.Target.cs",
-		"D:\\GitHub\\FogOfWarTranning\\FogOfWarTranning\\Source\\FogOfWarTranningEditor.Target.cs"
+		"D:\\GitHub\\UnrealEngine\\FogOfWarTranning\\FogOfWarTranning\\Source\\FogOfWarTranning\\FogOfWarTranning.Build.cs",
+		"D:\\GitHub\\UnrealEngine\\FogOfWarTranning\\FogOfWarTranning\\Source\\FogOfWarTranning.Target.cs",
+		"D:\\GitHub\\UnrealEngine\\FogOfWarTranning\\FogOfWarTranning\\Source\\FogOfWarTranningEditor.Target.cs"
 	],
 	"EngineVersion": "5.4.4"
 }

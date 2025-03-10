@@ -32,10 +32,16 @@ struct Z_Construct_UClass_AFogOfWarTranningCharacter_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// USTRUCT(BlueprintType, Blueprintable)\n// struct FMiniEle2\n// {\n// \x09GENERATED_BODY()\n// \x09""float CenterX, CenterY, A1, B1, C1, A2, B2, C2, A3, B3, C3;\n// \x09int Sign1, Sign2;\n// };\n" },
+#endif
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "FogOfWarTranningCharacter.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "FogOfWarTranningCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "USTRUCT(BlueprintType, Blueprintable)\nstruct FMiniEle2\n{\n      GENERATED_BODY()\n      float CenterX, CenterY, A1, B1, C1, A2, B2, C2, A3, B3, C3;\n      int Sign1, Sign2;\n};" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TopDownCameraComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -115,14 +121,14 @@ AFogOfWarTranningCharacter::~AFogOfWarTranningCharacter() {}
 // End Class AFogOfWarTranningCharacter
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_FogOfWarTranningCharacter_h_Statics
+struct Z_CompiledInDeferFile_FID_GitHub_UnrealEngine_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_FogOfWarTranningCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFogOfWarTranningCharacter, AFogOfWarTranningCharacter::StaticClass, TEXT("AFogOfWarTranningCharacter"), &Z_Registration_Info_UClass_AFogOfWarTranningCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFogOfWarTranningCharacter), 555086722U) },
+		{ Z_Construct_UClass_AFogOfWarTranningCharacter, AFogOfWarTranningCharacter::StaticClass, TEXT("AFogOfWarTranningCharacter"), &Z_Registration_Info_UClass_AFogOfWarTranningCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFogOfWarTranningCharacter), 1781840014U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_FogOfWarTranningCharacter_h_1782462008(TEXT("/Script/FogOfWarTranning"),
-	Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_FogOfWarTranningCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_FogOfWarTranningCharacter_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_UnrealEngine_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_FogOfWarTranningCharacter_h_94735430(TEXT("/Script/FogOfWarTranning"),
+	Z_CompiledInDeferFile_FID_GitHub_UnrealEngine_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_FogOfWarTranningCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_UnrealEngine_FogOfWarTranning_FogOfWarTranning_Source_FogOfWarTranning_FogOfWarTranningCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

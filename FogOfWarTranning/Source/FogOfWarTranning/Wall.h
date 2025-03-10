@@ -16,7 +16,9 @@ class FOGOFWARTRANNING_API AWall : public AActor
 public:
 	// Sets default values for this actor's properties
 	AWall();
-
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wall")
+	class UStaticMeshComponent* StaticMesh;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -25,8 +27,5 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wall")
-	class UStaticMeshComponent* StaticMesh;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Wall")
-	class UBoxComponent* BoxComponent;
+	
 };

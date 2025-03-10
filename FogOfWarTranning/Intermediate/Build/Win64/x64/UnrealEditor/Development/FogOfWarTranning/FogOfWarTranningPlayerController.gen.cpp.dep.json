@@ -1,13 +1,15 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\github\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\fogofwartranningplayercontroller.gen.cpp",
+        "Source": "d:\\github\\unrealengine\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\fogofwartranningplayercontroller.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "d:\\github\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\x64\\fogofwartranningeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "PCH": "d:\\github\\unrealengine\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\x64\\fogofwartranningeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
         "Includes": [
-            "d:\\github\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\fogofwartranning\\definitions.fogofwartranning.h",
-            "d:\\github\\fogofwartranning\\fogofwartranning\\source\\fogofwartranning\\fogofwartranningplayercontroller.h",
-            "d:\\github\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\fogofwartranningplayercontroller.generated.h"
+            "d:\\github\\unrealengine\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\fogofwartranning\\definitions.fogofwartranning.h",
+            "d:\\github\\unrealengine\\fogofwartranning\\fogofwartranning\\source\\fogofwartranning\\fogofwartranningplayercontroller.h",
+            "d:\\github\\unrealengine\\fogofwartranning\\fogofwartranning\\source\\fogofwartranning\\mycanvas.h",
+            "d:\\github\\unrealengine\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\mycanvas.generated.h",
+            "d:\\github\\unrealengine\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\unrealeditor\\inc\\fogofwartranning\\uht\\fogofwartranningplayercontroller.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

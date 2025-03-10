@@ -1,12 +1,12 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\github\\fogofwartranning\\fogofwartranning\\source\\fogofwartranning\\fogofwartranning.cpp",
+        "Source": "d:\\github\\unrealengine\\fogofwartranning\\fogofwartranning\\source\\fogofwartranning\\fogofwartranning.cpp",
         "ProvidedModule": "",
-        "PCH": "d:\\github\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\x64\\fogofwartranningeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "PCH": "d:\\github\\unrealengine\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\x64\\fogofwartranningeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
         "Includes": [
-            "d:\\github\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\fogofwartranning\\definitions.fogofwartranning.h",
-            "d:\\github\\fogofwartranning\\fogofwartranning\\source\\fogofwartranning\\fogofwartranning.h"
+            "d:\\github\\unrealengine\\fogofwartranning\\fogofwartranning\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\fogofwartranning\\definitions.fogofwartranning.h",
+            "d:\\github\\unrealengine\\fogofwartranning\\fogofwartranning\\source\\fogofwartranning\\fogofwartranning.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

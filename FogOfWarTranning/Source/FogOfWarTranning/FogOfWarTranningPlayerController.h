@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "MyCanvas.h"
 #include "Templates/SubclassOf.h"
 #include "GameFramework/PlayerController.h"
 #include "FogOfWarTranningPlayerController.generated.h"
@@ -13,15 +14,11 @@ class UInputMappingContext;
 class UInputAction;
 
 USTRUCT(BlueprintType, Blueprintable)
-struct FDataFog
+struct FMiniEle
 {
 	GENERATED_BODY()
-	UPROPERTY(BlueprintReadOnly)
-	float X;
-	UPROPERTY(BlueprintReadOnly)
-	float Y;
-	UPROPERTY(BlueprintReadOnly)
-	bool Z;
+	float Center_X, Center_Y, A1, B1, C1, A2, B2, C2, A3, B3, C3,SignOfCenter,SignOfChar;
+	int Sign1, Sign2;
 };
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
@@ -54,20 +51,27 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	UInputAction* SetDestinationTouchAction;
 
+	UFUNCTION(BlueprintCallable)
+	void DrawFogOfWar();
+
+	const int Max = 100;
+	bool FoW[100][100];
+	bool Change[100][100];
+	
+	UPROPERTY(EditAnywhere)
+	float FixedSize;
+	
 	UPROPERTY(EditAnywhere, Category="Collision")
 	TEnumAsByte<ECollisionChannel> TraceChannelProperty = ECC_Pawn;
-	const int32 Max = 128;
-	TArray<TArray<bool>> FOW;
-	float CellSize = 20.0f;
-
-	UPROPERTY(BlueprintReadOnly)
-	TArray<FDataFog> FowData;
 	
-	UFUNCTION(BlueprintCallable, Category = "FogOfWar")
-	void UpdateFogOfWar();
-
-	UFUNCTION(BlueprintCallable, Category = "FogOfWar")
-	void DrawFow();
+	UPROPERTY()
+	AMyCanvas* MyCanvass;
+	
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+	UTexture2D* WhiteTexture;
+	
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+	UTexture2D* BlackTexture;
 protected:
 	/** True if the controlled character should navigate to the mouse cursor. */
 	uint32 bMoveToMouseCursor : 1;
@@ -88,12 +92,10 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	
 private:
-	FVector CachedDestination;
-	FVector NewPosition, OldPosition;
+	FVector CachedDestination, NewPosition, OldPosition;
+
 	bool bIsTouch; // Is it a touch device
 	float FollowTime; // For how long it has been pressed
-	TArray<FVector> VisibleCells; // Danh sách các ô không bị bôi đen khi có đường tiep tuyến đi qua
-
 };
 
 

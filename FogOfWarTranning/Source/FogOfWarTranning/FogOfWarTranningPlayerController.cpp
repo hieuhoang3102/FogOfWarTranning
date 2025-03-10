@@ -10,188 +10,311 @@
 #include "EnhancedInputComponent.h"
 #include "InputActionValue.h"
 #include "EnhancedInputSubsystems.h"
+#include "Wall.h"
 #include "Engine/LocalPlayer.h"
 #include "Engine/StaticMeshActor.h"
+#include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetSystemLibrary.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
-AFogOfWarTranningPlayerController::AFogOfWarTranningPlayerController()
+AFogOfWarTranningPlayerController::AFogOfWarTranningPlayerController(): ShortPressThreshold(0), FXCursor(nullptr),
+																DefaultMappingContext(nullptr),
+																SetDestinationClickAction(nullptr),
+																SetDestinationTouchAction(nullptr),
+																bMoveToMouseCursor(0), bIsTouch(false)
 {
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
 	CachedDestination = FVector::ZeroVector;
 	FollowTime = 0.f;
-
-	// Cấp phát bộ nhớ cho FOW
-	FOW.SetNum(Max);
-	for (int x = 0; x < Max; x++)
-	{
-		FOW[x].SetNum(Max);
-		for (int y = 0; y < Max; y++)
-		{
-			FOW[x][y] = true;
-			FowData.Add(FDataFog(x,y, true));
-		}
-	}
+	
 }
 
 void AFogOfWarTranningPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
+	for (int i = 0; i < Max; i++)
+		for (int j = 0; j < Max; j++)
+		{
+			FoW[i][j] = true;
+			Change[i][j] = false;
+		}
+	MyCanvass = Cast<AMyCanvas>(UGameplayStatics::GetActorOfClass(GetWorld(), AMyCanvas::StaticClass()));
 }
-
 void AFogOfWarTranningPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
-	OldPosition = NewPosition;
-	NewPosition = GetPawn()->GetActorLocation();
-	
-	if ((NewPosition - OldPosition).Size() > 5.0f)
+	if (IsValid(GetPawn()))
 	{
-		UpdateFogOfWar();
+		OldPosition = NewPosition;
+		NewPosition = GetPawn()->GetActorLocation();
+	
+		if ((NewPosition - OldPosition).Length() > 1.0f)
+		{
+			int Min_x = 1000000, Min_y = 1000000;
+			int Max_x = -100000, Max_y = -1000000;
+		
+			int h = NewPosition.X;
+			int delta = 4;
+			h /= 100;
+			if (h - delta < Min_x)
+				Min_x = h - delta;
+			if (h + delta > Max_x)
+				Max_x = h + delta;
+			int k = NewPosition.Y;
+			k /= 100;
+			if (k - delta < Min_y)
+				Min_y = k - delta;
+			if (k + delta > Max_y)
+				Max_y = k + delta;
+
+			h = OldPosition.X;
+			h /= 100;
+			if (h - delta < Min_x)
+				Min_x = h - delta;
+			if (h + delta > Max_x)
+				Max_x = h + delta;
+			k = OldPosition.Y;
+			k /= 100;
+			if (k - delta < Min_y)
+				Min_y = k - delta;
+			if (k + delta > Max_y)
+				Max_y = k + delta;
+
+			Min_x = (Min_x < 1) ? 1 : Min_x;
+			Max_x = (Max_x >= Max) ? Max - 1 : Max_x;
+
+			Min_y = (Min_y < 1) ? 1 : Min_y;
+			Max_y = (Max_y >= Max) ? Max - 1 : Max_y;
+		
+			TArray<FHitResult> HitResults;
+			GetWorld()->SweepMultiByChannel(HitResults, NewPosition, NewPosition, FQuat::Identity,
+				ECC_Visibility, FCollisionShape::MakeSphere(400.f));
+			TArray<FMiniEle> MyEles;
+			for (auto Hit : HitResults)
+			{
+				AWall* Object = Cast<AWall>(Hit.GetActor());
+				if (IsValid(Object))
+				{
+					float Center_X = Object->GetActorLocation().X;
+					float Center_Y = Object->GetActorLocation().Y;
+					float x1 = NewPosition.X;
+					float y1 = NewPosition.Y;
+		
+					FVector ObstacleScale = Object->GetActorScale();
+					FVector ObstacleLocation = Object->GetActorLocation();
+					
+					float ObstacleWidth = ObstacleScale.Y * 50.f;
+					float ObstacleLength = ObstacleScale.X * 50.f;
+		
+					FVector EndPoint1 = Object->GetActorTransform().TransformPosition({50.f,50.f,0});
+					FVector EndPoint2 = Object->GetActorTransform().TransformPosition({-50.f,50.f,0});
+					FVector EndPoint3 = Object->GetActorTransform().TransformPosition({50.f,-50.f,0});
+					FVector EndPoint4 = Object->GetActorTransform().TransformPosition({-50.f,-50.f,0});
+					
+					FVector PO = Object->GetActorLocation() - NewPosition; PO.Normalize();
+					FVector PA = EndPoint1 - NewPosition; PA.Normalize();
+					FVector PB = EndPoint2 - NewPosition; PB.Normalize();
+					FVector PC = EndPoint3 - NewPosition; PC.Normalize();
+					FVector PD = EndPoint4 - NewPosition; PD.Normalize();
+					FVector MaxAngleVector = PA, Point1 = EndPoint1, Point2 = EndPoint1;
+					float d2, d3, d4, MaxAngle = FVector::DotProduct(PO, PA);
+					d2 = FVector::DotProduct(PO, PB);
+					if (d2 < MaxAngle)
+					{
+						MaxAngle = d2;
+						MaxAngleVector = PB;
+						Point1 = EndPoint2;
+					}
+					d3 = FVector::DotProduct(PO, PC);
+					if (d3 < MaxAngle)
+					{
+						MaxAngle = d3;
+						MaxAngleVector = PC;
+						Point1 = EndPoint3;
+					}
+					d4 = FVector::DotProduct(PO, PD);
+					if (d4 < MaxAngle)
+					{
+						MaxAngle = d4;
+						MaxAngleVector = PD;
+						Point1 = EndPoint4;
+					}
+					
+					MaxAngle = FVector::DotProduct(MaxAngleVector, PA);
+					d2 = FVector::DotProduct(MaxAngleVector, PB);
+					if (d2 < MaxAngle)
+					{
+						MaxAngle = d2;
+						Point2 = EndPoint2;
+					}
+					d3 = FVector::DotProduct(MaxAngleVector, PC);
+					if (d3 < MaxAngle)
+					{
+						MaxAngle = d3;
+						Point2 = EndPoint3;
+					}
+					d4 = FVector::DotProduct(MaxAngleVector, PD);
+					if (d4 < MaxAngle)
+					{
+						MaxAngle = d4;
+						Point2 = EndPoint4;
+					}
+					DrawDebugLine(GetWorld(), NewPosition, Point1, FColor::Blue, false, 1.0f);
+					DrawDebugLine(GetWorld(), NewPosition, Point2, FColor::Blue, false, 1.0f);
+					
+					float A1, B1, C1;
+					A1 = y1 - Point1.Y;
+					B1 = Point1.X - x1;
+					C1 = - (y1 - Point1.Y) * x1 - (Point1.X - x1) * y1;
+			
+					float A2, B2, C2;
+					A2 = y1 - Point2.Y;
+					B2 = Point2.X - x1;
+					C2 = - (y1 - Point2.Y) * x1 - (Point2.X - x1) * y1;
+
+					float A3, B3, C3;
+					A3 = Point2.Y - Point1.Y;
+					B3 = Point1.X - Point2.X;
+					C3 = - (Point2.Y - Point1.Y) * Point2.X - (Point1.X - Point2.X) * Point1.Y;
+					
+					float I1, I2, I3;
+					int SignOfCenter = 0, SignOfChar = 0;
+					I1 = A1*Center_X + B1*Center_Y + C1;
+					I2 = A2*Center_X + B2*Center_Y + C2;
+					I3 = A3*NewPosition.X + B3*NewPosition.Y + C3;
+					if (I3 > 0)
+						SignOfChar = 1;
+					else
+						SignOfChar = 2;
+					
+					if (I1 > 0)
+					{
+						if (I2 > 0)
+							SignOfCenter = 1;
+						else
+							SignOfCenter = 2;
+					}
+					else
+					{
+						if (I2 > 0)
+							SignOfCenter = 3;
+						else
+							SignOfCenter = 4;
+					}
+					MyEles.Add(FMiniEle(Center_X, Center_Y, A1, B1, C1, A2, B2, C2, A3, B3, C3,SignOfCenter,SignOfChar));
+				}
+			}
+			
+			float x = -50.f + Min_x * 100.f, y;
+			for (int i = Min_x; i <= Max_x; i++)
+			{
+				x += 100.f;
+				y = -50.f + Min_y * 100.f;
+				for (int j = Min_y; j <= Max_y; j++)
+				{
+					y += 100.f;
+					float Distance = (x - NewPosition.X) * (x - NewPosition.X) + (y - NewPosition.Y) * (y - NewPosition.Y);
+					
+					if (Distance < 160000.f)
+					{
+						if (FoW[i][j])
+						{
+							Change[i][j] = true;
+							FoW[i][j] = false;
+						}
+						else
+						{
+							Change[i][j] = false;
+						}
+					}
+					else
+					{
+						if (!FoW[i][j])
+						{
+							Change[i][j] = true;
+							FoW[i][j] = true;
+						}
+						else
+						{
+							Change[i][j] = false;
+						}
+					}
+
+					for (auto Ele : MyEles)
+					{
+						float Z1, Z2, Z3;
+						int SignOfXY = 0, SignOfZ = 0;
+						Z1 = Ele.A1 * x + Ele.B1 * y + Ele.C1;
+						Z2 = Ele.A2 * x + Ele.B2 * y + Ele.C2;
+						Z3 = Ele.A3 * x + Ele.B3 * y + Ele.C3;
+						if (Z3 > 0)
+							SignOfZ = 1;
+						else
+							SignOfZ = 2;
+						if (Z1 > 0)
+						{
+							if (Z2 > 0)
+								SignOfXY = 1;
+							else
+								SignOfXY = 2;
+						}
+						else
+						{
+							if (Z2 > 0)
+								SignOfXY = 3;
+							else
+								SignOfXY = 4;
+						}
+						if (Ele.Sign1 == SignOfXY && Ele.Sign2 != SignOfZ)
+						{
+							if (!FoW[i][j])
+							{
+								Change[i][j] = true;
+								FoW[i][j] = true;
+								break;
+							}
+							
+						}
+					}
+				
+					float brushlocationX = i/100.f + 0.005f;
+					float brushlocationY = j/100.f + 0.005f;
+				
+					if (IsValid(MyCanvass) && Change[i][j])
+					{
+						if (!FoW[i][j])
+							MyCanvass->DrawBrush(BlackTexture, FixedSize, {brushlocationX, brushlocationY});
+						else
+							MyCanvass->DrawBrush(WhiteTexture, FixedSize, {brushlocationX, brushlocationY});
+					
+					}
+				}
+			}
+		}
 	}
 }
 
-void AFogOfWarTranningPlayerController::UpdateFogOfWar()
+void AFogOfWarTranningPlayerController::DrawFogOfWar()
 {
-    UWorld* World = GetWorld();
-    if (!World) return;
-
-    const FVector PlayerLocation = GetPawn()->GetActorLocation();
-    float MinRadius = 500.0f;
-    float MinRadiusSquared = MinRadius * MinRadius;
-
-    // Lưu trữ các ô tầm nhìn và vật cản
-    TArray<FVector> LocalVisibleCells;
-    TArray<FVector> ObstructedCells;
-
-    // Kiểm tra các vật thể che khuất (với phạm vi kiểm tra lớn hơn để tối ưu)
-    TArray<FHitResult> HitResults;
-    FCollisionQueryParams QueryParams;
-    QueryParams.AddIgnoredActor(GetPawn());
-
-    // Kiểm tra vật thể trong phạm vi tầm nhìn
-    GetWorld()->SweepMultiByChannel(HitResults, PlayerLocation, PlayerLocation, FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(MinRadius));
-
-    // Xử lý từng vật thể che khuất
-    for (const auto& Hit : HitResults)
-    {
-        AStaticMeshActor* Obstacle = Cast<AStaticMeshActor>(Hit.GetActor());
-        if (!IsValid(Obstacle)) continue;
-
-        FVector ObstacleLocation = Obstacle->GetActorLocation();
-        float ObstacleRadius = 50.0f;
-
-        FVector ToObstacle = ObstacleLocation - PlayerLocation;
-        float Distance = ToObstacle.Size();
-
-        if (Distance <= ObstacleRadius || Distance > MinRadius) continue;
-
-        // Tính toán tiếp tuyến chỉ một lần cho mỗi vật cản
-        float Angle = FMath::Asin(ObstacleRadius / Distance);
-        FVector Tangent1 = ToObstacle.RotateAngleAxis(FMath::RadiansToDegrees(Angle), FVector(0, 0, 1)).GetSafeNormal();
-        FVector Tangent2 = ToObstacle.RotateAngleAxis(-FMath::RadiansToDegrees(Angle), FVector(0, 0, 1)).GetSafeNormal();
-
-        FVector EndPoint1 = PlayerLocation + Tangent1 * 500.0f;
-        FVector EndPoint2 = PlayerLocation + Tangent2 * 500.0f;
-
-        // Vẽ debug line tiếp tuyến
-        // DrawDebugLine(World, PlayerLocation, EndPoint1, FColor::Green, false, 1.0f);
-        // DrawDebugLine(World, PlayerLocation, EndPoint2, FColor::Green, false, 1.0f);
-
-        // Lưu danh sách các ô bị vật cản che khuất
-        for (int x = 0; x < Max; x++)
-        {
-            for (int y = 0; y < Max; y++)
-            {
-                FVector CellWorldPosition(x * CellSize, y * CellSize, 20.0f);
-                float DistanceSquared = FVector::DistSquared(PlayerLocation, CellWorldPosition);
-
-                if (DistanceSquared > MinRadiusSquared) continue;
-
-                // Kiểm tra vật cản
-                FHitResult LineHit;
-                if (GetWorld()->LineTraceSingleByChannel(LineHit, PlayerLocation, CellWorldPosition, ECC_Visibility, QueryParams))
-                {
-                    if (IsValid(LineHit.GetActor()) && LineHit.GetActor() == Obstacle)
-                    {
-                        ObstructedCells.Add(CellWorldPosition);
-                        continue;
-                    }
-                }
-                // Nếu ô nằm trên tiếp tuyến, vẫn sáng
-                // if (FMath::PointDistToLine(CellWorldPosition, Tangent1, PlayerLocation) < CellSize ||
-                //     FMath::PointDistToLine(CellWorldPosition, Tangent2, PlayerLocation) < CellSize)
-                // {
-                //     LocalVisibleCells.Add(CellWorldPosition);
-                // }
-            }
-        }
-    }
-
-    // Cập nhật vùng sương mù và chỉ tính toán những ô thay đổi
-	//FowData.Empty(); // Xóa dữ liệu cũ trước khi cập nhật mới
-    for (int x = 0; x < Max; x++)
-    {
-        for (int y = 0; y < Max; y++)
-        {
-            FVector CellWorldPosition(x * CellSize, y * CellSize, 20.0f);
-            float DistanceSquared = FVector::DistSquared(PlayerLocation, CellWorldPosition);
-
-            // Nếu ô ngoài tầm nhìn, bôi đen lại
-            if (DistanceSquared > MinRadiusSquared)
-            {
-                FOW[x][y] = true; // Ô ngoài phạm vi luôn tối
-            	FowData[x * Max + y].Z = true;
-                continue;
-            }
-            else
-            {
-            	bool bObstructed = ObstructedCells.Contains(CellWorldPosition);
-            	FOW[x][y] = bObstructed;
-            	FowData[x * Max + y].Z = bObstructed;
-            }
-            // Kiểm tra ô có bị che khuất không
-            // bool bObstructed = ObstructedCells.Contains(CellWorldPosition);
-            // bool bOnTangent = LocalVisibleCells.Contains(CellWorldPosition);
-
-
-        	
-        	// // Nếu ô bị che khuất (FOW[x][y] == true), thêm vào FowData
-        	// if (FOW[x][y])
-        	// {
-        	// 	FowData.Add(FDataFog{x * CellSize, y * CellSize, true});
-        	// }
-        	// // Nếu ô nằm trong danh sách ô tầm nhìn, thêm vào FowData với trạng thái sáng
-        	// if (LocalVisibleCells.Contains(CellWorldPosition))
-        	// {
-        	// 	FowData.Add(FDataFog{x * CellSize, y * CellSize, false}); // Ô thuộc tầm nhìn
-        	// }
-        	// // FOW[x][y] = bObstructed && !bOnTangent;
-        }
-    }
+	// float x = 90.f;
+	// for (int i = 0; i < Max; i++)
+	// {
+	// 	x += 20.f;
+	// 	float y = 90.f;
+	// 	for (int j = 0; j < Max; j++)
+	// 	{
+	// 		y += 20.f;
+	// 		if (FoW[i][j])
+	// 			UKismetSystemLibrary::DrawDebugBox(this,
+	// 				{x,y,10.f},
+	// 				{7.f,7.f,7.f},
+	// 				FColor::Black,
+	// 				FRotator::ZeroRotator, 2.f, 20.f);
+	// 	}
+	// }
 }
-
-void AFogOfWarTranningPlayerController::DrawFow()
-{
-	//Vẽ debug cho các ô bị che khuất 
-	for (int x = 0; x < Max; x++)
-	{
-	    for (int y = 0; y < Max; y++)
-	    {
-	        // Nếu ô này không thể nhìn thấy, tức là sương mù
-	        if (FOW[x][y] == true)
-	        {
-	        	FowData[x * Max + y].Z = true;
-	            FVector CellWorldPosition(x * CellSize, y * CellSize, 20.0f);
-	            DrawDebugBox(this->GetWorld(), CellWorldPosition, FVector(CellSize, CellSize, 10.0f), FColor::Black, false, 1.0f, 0, 20.0f);
-	        }
-	    }
-	}
-}
-
 void AFogOfWarTranningPlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
